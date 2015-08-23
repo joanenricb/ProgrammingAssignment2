@@ -54,7 +54,3 @@ BB <- cacheSolve(AA)
 #getting cached data
 #getting cached data
 
-
-
-#print(AA$get())
-#print(BB)
