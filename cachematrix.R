@@ -7,8 +7,8 @@
 
 
 makeCacheMatrix <- function(x = matrix()) {
-    inv <- NULL
-    set <- function(y) {
+    inv <- NULL # set inv to NULL
+    set <- function(y) { # set matrix value and inv to different environment
         x <<- y
         inv <<- NULL
     }
@@ -30,12 +30,12 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
     ## Return a matrix that is the inverse of 'x'
-    inv <- x$getinv()
-    if(!is.null(inv)) {
-        message("getting cached data")
+    inv <- x$getinv() # gets inv in chache
+    if(!is.null(inv)) { # if inv is NOT NULL, return inv and exit
+        message("getting cached data") 
         return(inv)
     }
-    data <- x$get()
+    data <- x$get() # if no cached data, compute inv.
     inv <- solve(data, ...)
     x$setinv(inv)
     inv}
